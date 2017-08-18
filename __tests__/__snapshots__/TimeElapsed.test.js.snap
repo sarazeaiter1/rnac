@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeElapsed exports 1`] = `[Function]`;
+
+exports[`TimeElapsed renders and accepts children as React Class Component 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+>
+  {"secondsElapsed":0}
+</Text>
+`;
+
+exports[`TimeElapsed renders and accepts children as callable function 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+>
+  {"secondsElapsed":0}
+</Text>
+`;

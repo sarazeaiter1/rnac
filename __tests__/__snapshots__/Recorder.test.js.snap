@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recorder exports 1`] = `[Function]`;
+
+exports[`Recorder renders and accepts children as React Class Component 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+>
+  {}
+</Text>
+`;
+
+exports[`Recorder renders and accepts children as callable function 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+>
+  {"isRecording":false}
+</Text>
+`;

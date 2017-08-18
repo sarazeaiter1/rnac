@@ -1,14 +1,17 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 class TimeElapsed extends React.Component {
   state = {
     secondsElapsed: 0
   };
+  static propTypes = {
+    children: PropTypes.node,
+    start: PropTypes.bool
+  };
   static defaultProps = {
-    start: 0,
-    renderTime: () => {
-      console.warn('Forgot to attach Time Renderer');
-    }
+    start: false
   };
 
   componentWillMount() {
@@ -34,6 +37,8 @@ class TimeElapsed extends React.Component {
       start: this.props.start,
       secondsElapsed: this.state.secondsElapsed
     };
+    if (!this.props.children) return null;
+
     return typeof this.props.children === 'function'
       ? this.props.children(newFreshProps)
       : React.cloneElement(this.props.children, newFreshProps);

@@ -1,9 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import AudioUtils from '../native-interfaces/AudioUtils';
 import AudioRecorder from '../native-interfaces/AudioRecorder';
 
 class RecorderButton extends React.Component {
+  static propTypes = {
+    children: PropTypes.node,
+    recordingOptions: PropTypes.shape({
+      SampleRate: PropTypes.number,
+      Channels: PropTypes.number,
+      AudioEncodingBitRate: PropTypes.number,
+      AudioQuality: PropTypes.string,
+      AudioEncoding: PropTypes.string
+    })
+  };
   static defaultProps = {
     children: null,
     onStartRecording: () => null,
@@ -28,6 +39,8 @@ class RecorderButton extends React.Component {
   render() {
     const { startRecording, stopRecording } = this;
     const { isRecording } = this.state;
+    const { children } = this.props;
+    if (!children) return null;
     return typeof this.props.children === 'function'
       ? this.props.children({ startRecording, stopRecording, isRecording })
       : React.cloneElement(this.props.children, {
@@ -51,12 +64,17 @@ class RecorderButton extends React.Component {
         ? this.props.recordingDirPath + fileName
         : recordingPath;
 
+    const mergedOptions = {
+      ...this.props.recordingOptions,
+      ...recordingOptions
+    };
     try {
       await AudioRecorder.startRecording({
         recordingPath: recordingSaveToPath,
-        recordingOptions: this.props.recordingOptions
+        recordingOptions: mergedOptions
       });
     } catch (err) {
+      // eslint-disable-next-line
       console.warn('Error : ' + err.message);
     }
 

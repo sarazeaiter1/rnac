@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`constants defaultRecordingOptions 1`] = `
+Object {
+  "AudioEncoding": "ima4",
+  "AudioEncodingBitRate": 32000,
+  "AudioQuality": "High",
+  "Channels": 2,
+  "MeteringEnabled": false,
+  "OutputFormat": "mpeg_4",
+  "SampleRate": 44100,
+}
+`;
+
+exports[`constants nativeAppEventNames 1`] = `
+Object {
+  "recordingFinished": "recordingFinished",
+  "recordingProgress": "recordingProgress",
+}
+`;
