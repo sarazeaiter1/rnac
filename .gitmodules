@@ -1,0 +1,3 @@
+[submodule "react-native-audio-recorder-example"]
+	path = react-native-audio-recorder-example
+	url = https://github.com/rakannimer/react-native-audio-recorder-example
