@@ -7,11 +7,12 @@ class TimeElapsed extends React.Component {
     secondsElapsed: 0
   };
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
     start: PropTypes.bool
   };
   static defaultProps = {
-    start: false
+    start: false,
+    children: null
   };
 
   componentWillMount() {
@@ -33,11 +34,14 @@ class TimeElapsed extends React.Component {
   }
 
   render() {
+    const { children } = this.props;
+    if (!children) return null;
+
     const newFreshProps = {
       start: this.props.start,
       secondsElapsed: this.state.secondsElapsed
     };
-    if (!this.props.children) return null;
+    // if (!this.props.children) return null;
 
     return typeof this.props.children === 'function'
       ? this.props.children(newFreshProps)

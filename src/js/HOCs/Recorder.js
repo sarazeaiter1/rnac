@@ -6,7 +6,7 @@ import AudioRecorder from '../native-interfaces/AudioRecorder';
 
 class RecorderButton extends React.Component {
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
     recordingOptions: PropTypes.shape({
       SampleRate: PropTypes.number,
       Channels: PropTypes.number,

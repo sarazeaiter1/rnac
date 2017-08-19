@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { View, Text } from 'react-native';
 import renderer from 'react-test-renderer';
 
 import TimeElapsed from '../src/js/HOCs/TimeElapsed';
@@ -9,6 +9,7 @@ describe('TimeElapsed', () => {
     expect(TimeElapsed).toMatchSnapshot();
   });
   test('renders null with no children', () => {
+    // const children = () => <View />;
     const tree = renderer.create(<TimeElapsed start={false} />);
     expect(JSON.stringify(tree)).toEqual('null');
   });
