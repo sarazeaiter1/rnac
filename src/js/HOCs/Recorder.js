@@ -20,7 +20,7 @@ class RecorderButton extends React.Component {
     onStartRecording: () => null,
     onStopRecording: () => null,
     recordingDirPath: `${AudioUtils.DocumentDirectoryPath}/`,
-    recordingPath: `${AudioUtils.DocumentDirectoryPath}/test.aac`,
+    recordingPath: 'test.aac',
     recordingOptions: {
       SampleRate: 22050,
       Channels: 1,
@@ -91,7 +91,7 @@ class RecorderButton extends React.Component {
     await AudioRecorder.stopRecording();
     this.setState({ isRecording: false });
     this.props.onStopRecording({
-      recordingPath: this.props.recordingPath,
+      recordingPath: this.props.recordingDirPath + this.props.recordingPath,
       recordingOptions: this.props.recordingOptions
     });
   };
