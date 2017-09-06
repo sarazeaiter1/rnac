@@ -50,8 +50,7 @@ public class RNAudioRecorderModule extends ReactContextBaseJavaModule {
   private Timer timer;
   private int recorderSecondsElapsed;
 
-
-  public AudioRecorderManager(ReactApplicationContext reactContext) {
+  public RNAudioRecorderModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.context = reactContext;
   }
