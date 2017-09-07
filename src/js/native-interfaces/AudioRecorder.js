@@ -57,12 +57,18 @@ const AudioRecorder = {
             recordingOptions: { recordingOptions }
           }
         );
-        await AudioRecorderManager.prepareRecordingAtPath(
-          prepareRecordingAtPathArgs.recordingPath,
-          {
-            ...prepareRecordingAtPathArgs.settings
-          }
-        );
+        if (Platform.OS === 'ios') {
+          await AudioRecorderManager.prepareRecordingAtPath(
+            ...prepareRecordingAtPathArgs
+          );
+        } else {
+          await AudioRecorderManager.prepareRecordingAtPath(
+            prepareRecordingAtPathArgs.recordingPath,
+            {
+              ...prepareRecordingAtPathArgs.settings
+            }
+          );
+        }
 
         return AudioRecorderManager.startRecording();
       }
