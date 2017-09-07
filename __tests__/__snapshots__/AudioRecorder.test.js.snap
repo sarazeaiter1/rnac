@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recorder destroy 1`] = `
+Object {
+  "bindNativeEventListeners": [Function],
+  "checkAuthorizationStatus": undefined,
+  "destroy": [Function],
+  "init": [Function],
+  "onRecordingFinished": null,
+  "onRecordingProgress": null,
+  "pauseRecording": [Function],
+  "removeListeners": [Function],
+  "requestAuthorization": undefined,
+  "startRecording": [Function],
+  "stopRecording": [Function],
+  "unbindNativeEventListeners": [Function],
+}
+`;
+
+exports[`Recorder exports 1`] = `
+Object {
+  "bindNativeEventListeners": [Function],
+  "checkAuthorizationStatus": undefined,
+  "destroy": [Function],
+  "init": [Function],
+  "onRecordingFinished": [Function],
+  "onRecordingProgress": [Function],
+  "pauseRecording": [Function],
+  "removeListeners": [Function],
+  "requestAuthorization": undefined,
+  "startRecording": [Function],
+  "stopRecording": [Function],
+  "unbindNativeEventListeners": [Function],
+}
+`;
+
+exports[`Recorder init 1`] = `
+Object {
+  "bindNativeEventListeners": [Function],
+  "checkAuthorizationStatus": undefined,
+  "destroy": [Function],
+  "init": [Function],
+  "onRecordingFinished": null,
+  "onRecordingProgress": null,
+  "pauseRecording": [Function],
+  "removeListeners": [Function],
+  "requestAuthorization": undefined,
+  "startRecording": [Function],
+  "stopRecording": [Function],
+  "unbindNativeEventListeners": [Function],
+}
+`;
+
+exports[`Recorder pauseRecording 1`] = `
+Object {
+  "bindNativeEventListeners": [Function],
+  "checkAuthorizationStatus": undefined,
+  "destroy": [Function],
+  "init": [Function],
+  "onRecordingFinished": null,
+  "onRecordingProgress": null,
+  "pauseRecording": [Function],
+  "removeListeners": [Function],
+  "requestAuthorization": undefined,
+  "startRecording": [Function],
+  "stopRecording": [Function],
+  "unbindNativeEventListeners": [Function],
+}
+`;
+
+exports[`Recorder removeListeners recordingProgressSubscription 1`] = `
+Object {
+  "bindNativeEventListeners": [Function],
+  "checkAuthorizationStatus": undefined,
+  "destroy": [Function],
+  "init": [Function],
+  "onRecordingFinished": null,
+  "onRecordingProgress": null,
+  "pauseRecording": [Function],
+  "removeListeners": [Function],
+  "requestAuthorization": undefined,
+  "startRecording": [Function],
+  "stopRecording": [Function],
+  "unbindNativeEventListeners": [Function],
+}
+`;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View, Button } from 'react-native';
 import renderer from 'react-test-renderer';
-
+import { shallow } from 'enzyme';
 import Recorder from '../src/js/HOCs/Recorder';
 
 describe('Recorder', () => {
@@ -96,5 +96,163 @@ describe('Recorder', () => {
     );
 
     expect(JSON.stringify(withClass)).toEqual(JSON.stringify(withFunction));
+  });
+  test('test component will unMount', () => {
+    const Comp = shallow(
+      <Recorder recordingPath={'test.aac'}>
+        {({ isRecording, startRecording, stopRecording }) => {
+          return (
+            <View>
+              <Button
+                onPress={() => {
+                  if (!isRecording) {
+                    return startRecording('test.aac');
+                  }
+                  return stopRecording();
+                }}
+                style={{}}
+                title={isRecording ? 'Stop Recording' : 'Start Recording'}
+              />
+            </View>
+          );
+        }}
+      </Recorder>
+    );
+    Comp.renderer._instance._instance.componentWillUnmount();
+    expect(Comp).toMatchSnapshot();
+  });
+
+  test('test on start', () => {
+    const Comp = shallow(
+      <Recorder recordingPath={'test.aac'}>
+        {({ isRecording, startRecording, stopRecording }) => {
+          return (
+            <View>
+              <Button
+                onPress={() => {
+                  if (!isRecording) {
+                    return startRecording('test.aac');
+                  }
+                  return stopRecording();
+                }}
+                style={{}}
+                title={isRecording ? 'Stop Recording' : 'Start Recording'}
+              />
+            </View>
+          );
+        }}
+      </Recorder>
+    );
+    Comp.renderer._instance._instance.state.isRecording = true;
+    Comp.renderer._instance._instance.startRecording();
+    expect(Comp).toMatchSnapshot();
+  });
+  test('test start recording with path', () => {
+    const Comp = shallow(
+      <Recorder recordingPath={'test.aac'}>
+        {({ isRecording, startRecording, stopRecording }) => {
+          return (
+            <View>
+              <Button
+                onPress={() => {
+                  if (!isRecording) {
+                    return startRecording('test.aac');
+                  }
+                  return stopRecording();
+                }}
+                style={{}}
+                title={isRecording ? 'Stop Recording' : 'Start Recording'}
+              />
+            </View>
+          );
+        }}
+      </Recorder>
+    );
+    Comp.renderer._instance._instance.startRecording('test.aac');
+    expect(Comp).toMatchSnapshot();
+  });
+  test('test start recording with path and configuration', () => {
+    const Comp = shallow(
+      <Recorder recordingPath={'test.aac'}>
+        {({ isRecording, startRecording, stopRecording }) => {
+          return (
+            <View>
+              <Button
+                onPress={() => {
+                  if (!isRecording) {
+                    return startRecording('test.aac');
+                  }
+                  return stopRecording();
+                }}
+                style={{}}
+                title={isRecording ? 'Stop Recording' : 'Start Recording'}
+              />
+            </View>
+          );
+        }}
+      </Recorder>
+    );
+    Comp.renderer._instance._instance.startRecording('test.aac', {
+      recordingPath: 'et3/',
+      recordingOptions: {
+        SampleRate: 44100.0,
+        Channels: 2,
+        AudioQuality: 'High',
+        AudioEncoding: 'ima4',
+        OutputFormat: 'mpeg_4',
+        MeteringEnabled: false,
+        AudioEncodingBitRate: 32000
+      }
+    });
+    expect(Comp).toMatchSnapshot();
+  });
+  test('test stop recording while is recording ', () => {
+    const Comp = shallow(
+      <Recorder recordingPath={'test.aac'}>
+        {({ isRecording, startRecording, stopRecording }) => {
+          return (
+            <View>
+              <Button
+                onPress={() => {
+                  if (!isRecording) {
+                    return startRecording('test.aac');
+                  }
+                  return stopRecording();
+                }}
+                style={{}}
+                title={isRecording ? 'Stop Recording' : 'Start Recording'}
+              />
+            </View>
+          );
+        }}
+      </Recorder>
+    );
+    Comp.renderer._instance._instance.state.isRecording = true;
+    Comp.renderer._instance._instance.stopRecording();
+    expect(Comp).toMatchSnapshot();
+  });
+  test('test stop recording while not recording ', () => {
+    const Comp = shallow(
+      <Recorder recordingPath={'test.aac'}>
+        {({ isRecording, startRecording, stopRecording }) => {
+          return (
+            <View>
+              <Button
+                onPress={() => {
+                  if (!isRecording) {
+                    return startRecording('test.aac');
+                  }
+                  return stopRecording();
+                }}
+                style={{}}
+                title={isRecording ? 'Stop Recording' : 'Start Recording'}
+              />
+            </View>
+          );
+        }}
+      </Recorder>
+    );
+    Comp.renderer._instance._instance.stopRecording();
+    expect(Comp).toMatchSnapshot();
   });
 });

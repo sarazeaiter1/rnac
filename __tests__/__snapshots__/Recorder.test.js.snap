@@ -21,3 +21,825 @@ exports[`Recorder renders and accepts children as callable function 1`] = `
   {"isRecording":false}
 </Text>
 `;
+
+exports[`Recorder test component will unMount 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <View>
+    <Button
+        onPress={[Function]}
+        style={Object {}}
+        title="Start Recording"
+    />
+</View>,
+  "nodes": Array [
+    <View>
+      <Button
+            onPress={[Function]}
+            style={Object {}}
+            title="Start Recording"
+      />
+</View>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <RecorderButton
+        onStartRecording={[Function]}
+        onStopRecording={[Function]}
+        recordingDirPath="undefined/"
+        recordingOptions={
+                Object {
+                        "AudioEncoding": "aac",
+                        "AudioEncodingBitRate": 32000,
+                        "AudioQuality": "Low",
+                        "Channels": 1,
+                        "SampleRate": 22050,
+                      }
+        }
+        recordingPath="test.aac"
+>
+        [Function]
+</RecorderButton>,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": RecorderButton {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "children": [Function],
+          "onStartRecording": [Function],
+          "onStopRecording": [Function],
+          "recordingDirPath": "undefined/",
+          "recordingOptions": Object {
+            "AudioEncoding": "aac",
+            "AudioEncodingBitRate": 32000,
+            "AudioQuality": "Low",
+            "Channels": 1,
+            "SampleRate": 22050,
+          },
+          "recordingPath": "test.aac",
+        },
+        "refs": Object {},
+        "startRecording": [Function],
+        "state": Object {
+          "isRecording": false,
+        },
+        "stopRecording": [Function],
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <View>
+          <Button
+                    onPress={[Function]}
+                    style={Object {}}
+                    title="Start Recording"
+          />
+</View>,
+        "_debugID": 2,
+        "_renderedOutput": <View>
+          <Button
+                    onPress={[Function]}
+                    style={Object {}}
+                    title="Start Recording"
+          />
+</View>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <RecorderButton
+    onStartRecording={[Function]}
+    onStopRecording={[Function]}
+    recordingDirPath="undefined/"
+    recordingOptions={
+        Object {
+            "AudioEncoding": "aac",
+            "AudioEncodingBitRate": 32000,
+            "AudioQuality": "Low",
+            "Channels": 1,
+            "SampleRate": 22050,
+          }
+    }
+    recordingPath="test.aac"
+>
+    [Function]
+</RecorderButton>,
+}
+`;
+
+exports[`Recorder test on start 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <View>
+    <Button
+        onPress={[Function]}
+        style={Object {}}
+        title="Start Recording"
+    />
+</View>,
+  "nodes": Array [
+    <View>
+      <Button
+            onPress={[Function]}
+            style={Object {}}
+            title="Start Recording"
+      />
+</View>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <RecorderButton
+        onStartRecording={[Function]}
+        onStopRecording={[Function]}
+        recordingDirPath="undefined/"
+        recordingOptions={
+                Object {
+                        "AudioEncoding": "aac",
+                        "AudioEncodingBitRate": 32000,
+                        "AudioQuality": "Low",
+                        "Channels": 1,
+                        "SampleRate": 22050,
+                      }
+        }
+        recordingPath="test.aac"
+>
+        [Function]
+</RecorderButton>,
+      "_debugID": 3,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": RecorderButton {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "children": [Function],
+          "onStartRecording": [Function],
+          "onStopRecording": [Function],
+          "recordingDirPath": "undefined/",
+          "recordingOptions": Object {
+            "AudioEncoding": "aac",
+            "AudioEncodingBitRate": 32000,
+            "AudioQuality": "Low",
+            "Channels": 1,
+            "SampleRate": 22050,
+          },
+          "recordingPath": "test.aac",
+        },
+        "refs": Object {},
+        "startRecording": [Function],
+        "state": Object {
+          "isRecording": true,
+        },
+        "stopRecording": [Function],
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 2,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <View>
+          <Button
+                    onPress={[Function]}
+                    style={Object {}}
+                    title="Start Recording"
+          />
+</View>,
+        "_debugID": 4,
+        "_renderedOutput": <View>
+          <Button
+                    onPress={[Function]}
+                    style={Object {}}
+                    title="Start Recording"
+          />
+</View>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <RecorderButton
+    onStartRecording={[Function]}
+    onStopRecording={[Function]}
+    recordingDirPath="undefined/"
+    recordingOptions={
+        Object {
+            "AudioEncoding": "aac",
+            "AudioEncodingBitRate": 32000,
+            "AudioQuality": "Low",
+            "Channels": 1,
+            "SampleRate": 22050,
+          }
+    }
+    recordingPath="test.aac"
+>
+    [Function]
+</RecorderButton>,
+}
+`;
+
+exports[`Recorder test start recording with path 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <View>
+    <Button
+        onPress={[Function]}
+        style={Object {}}
+        title="Start Recording"
+    />
+</View>,
+  "nodes": Array [
+    <View>
+      <Button
+            onPress={[Function]}
+            style={Object {}}
+            title="Start Recording"
+      />
+</View>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <RecorderButton
+        onStartRecording={[Function]}
+        onStopRecording={[Function]}
+        recordingDirPath="undefined/"
+        recordingOptions={
+                Object {
+                        "AudioEncoding": "aac",
+                        "AudioEncodingBitRate": 32000,
+                        "AudioQuality": "Low",
+                        "Channels": 1,
+                        "SampleRate": 22050,
+                      }
+        }
+        recordingPath="test.aac"
+>
+        [Function]
+</RecorderButton>,
+      "_debugID": 5,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": RecorderButton {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "children": [Function],
+          "onStartRecording": [Function],
+          "onStopRecording": [Function],
+          "recordingDirPath": "undefined/",
+          "recordingOptions": Object {
+            "AudioEncoding": "aac",
+            "AudioEncodingBitRate": 32000,
+            "AudioQuality": "Low",
+            "Channels": 1,
+            "SampleRate": 22050,
+          },
+          "recordingPath": "test.aac",
+        },
+        "refs": Object {},
+        "startRecording": [Function],
+        "state": Object {
+          "isRecording": false,
+        },
+        "stopRecording": [Function],
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 3,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <View>
+          <Button
+                    onPress={[Function]}
+                    style={Object {}}
+                    title="Start Recording"
+          />
+</View>,
+        "_debugID": 6,
+        "_renderedOutput": <View>
+          <Button
+                    onPress={[Function]}
+                    style={Object {}}
+                    title="Start Recording"
+          />
+</View>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <RecorderButton
+    onStartRecording={[Function]}
+    onStopRecording={[Function]}
+    recordingDirPath="undefined/"
+    recordingOptions={
+        Object {
+            "AudioEncoding": "aac",
+            "AudioEncodingBitRate": 32000,
+            "AudioQuality": "Low",
+            "Channels": 1,
+            "SampleRate": 22050,
+          }
+    }
+    recordingPath="test.aac"
+>
+    [Function]
+</RecorderButton>,
+}
+`;
+
+exports[`Recorder test start recording with path and configuration 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <View>
+    <Button
+        onPress={[Function]}
+        style={Object {}}
+        title="Start Recording"
+    />
+</View>,
+  "nodes": Array [
+    <View>
+      <Button
+            onPress={[Function]}
+            style={Object {}}
+            title="Start Recording"
+      />
+</View>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <RecorderButton
+        onStartRecording={[Function]}
+        onStopRecording={[Function]}
+        recordingDirPath="undefined/"
+        recordingOptions={
+                Object {
+                        "AudioEncoding": "aac",
+                        "AudioEncodingBitRate": 32000,
+                        "AudioQuality": "Low",
+                        "Channels": 1,
+                        "SampleRate": 22050,
+                      }
+        }
+        recordingPath="test.aac"
+>
+        [Function]
+</RecorderButton>,
+      "_debugID": 7,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": RecorderButton {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "children": [Function],
+          "onStartRecording": [Function],
+          "onStopRecording": [Function],
+          "recordingDirPath": "undefined/",
+          "recordingOptions": Object {
+            "AudioEncoding": "aac",
+            "AudioEncodingBitRate": 32000,
+            "AudioQuality": "Low",
+            "Channels": 1,
+            "SampleRate": 22050,
+          },
+          "recordingPath": "test.aac",
+        },
+        "refs": Object {},
+        "startRecording": [Function],
+        "state": Object {
+          "isRecording": false,
+        },
+        "stopRecording": [Function],
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 4,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <View>
+          <Button
+                    onPress={[Function]}
+                    style={Object {}}
+                    title="Start Recording"
+          />
+</View>,
+        "_debugID": 8,
+        "_renderedOutput": <View>
+          <Button
+                    onPress={[Function]}
+                    style={Object {}}
+                    title="Start Recording"
+          />
+</View>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <RecorderButton
+    onStartRecording={[Function]}
+    onStopRecording={[Function]}
+    recordingDirPath="undefined/"
+    recordingOptions={
+        Object {
+            "AudioEncoding": "aac",
+            "AudioEncodingBitRate": 32000,
+            "AudioQuality": "Low",
+            "Channels": 1,
+            "SampleRate": 22050,
+          }
+    }
+    recordingPath="test.aac"
+>
+    [Function]
+</RecorderButton>,
+}
+`;
+
+exports[`Recorder test stop recording while is recording  1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <View>
+    <Button
+        onPress={[Function]}
+        style={Object {}}
+        title="Start Recording"
+    />
+</View>,
+  "nodes": Array [
+    <View>
+      <Button
+            onPress={[Function]}
+            style={Object {}}
+            title="Start Recording"
+      />
+</View>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <RecorderButton
+        onStartRecording={[Function]}
+        onStopRecording={[Function]}
+        recordingDirPath="undefined/"
+        recordingOptions={
+                Object {
+                        "AudioEncoding": "aac",
+                        "AudioEncodingBitRate": 32000,
+                        "AudioQuality": "Low",
+                        "Channels": 1,
+                        "SampleRate": 22050,
+                      }
+        }
+        recordingPath="test.aac"
+>
+        [Function]
+</RecorderButton>,
+      "_debugID": 9,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": RecorderButton {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "children": [Function],
+          "onStartRecording": [Function],
+          "onStopRecording": [Function],
+          "recordingDirPath": "undefined/",
+          "recordingOptions": Object {
+            "AudioEncoding": "aac",
+            "AudioEncodingBitRate": 32000,
+            "AudioQuality": "Low",
+            "Channels": 1,
+            "SampleRate": 22050,
+          },
+          "recordingPath": "test.aac",
+        },
+        "refs": Object {},
+        "startRecording": [Function],
+        "state": Object {
+          "isRecording": true,
+        },
+        "stopRecording": [Function],
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 5,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <View>
+          <Button
+                    onPress={[Function]}
+                    style={Object {}}
+                    title="Start Recording"
+          />
+</View>,
+        "_debugID": 10,
+        "_renderedOutput": <View>
+          <Button
+                    onPress={[Function]}
+                    style={Object {}}
+                    title="Start Recording"
+          />
+</View>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <RecorderButton
+    onStartRecording={[Function]}
+    onStopRecording={[Function]}
+    recordingDirPath="undefined/"
+    recordingOptions={
+        Object {
+            "AudioEncoding": "aac",
+            "AudioEncodingBitRate": 32000,
+            "AudioQuality": "Low",
+            "Channels": 1,
+            "SampleRate": 22050,
+          }
+    }
+    recordingPath="test.aac"
+>
+    [Function]
+</RecorderButton>,
+}
+`;
+
+exports[`Recorder test stop recording while not recording  1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <View>
+    <Button
+        onPress={[Function]}
+        style={Object {}}
+        title="Start Recording"
+    />
+</View>,
+  "nodes": Array [
+    <View>
+      <Button
+            onPress={[Function]}
+            style={Object {}}
+            title="Start Recording"
+      />
+</View>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <RecorderButton
+        onStartRecording={[Function]}
+        onStopRecording={[Function]}
+        recordingDirPath="undefined/"
+        recordingOptions={
+                Object {
+                        "AudioEncoding": "aac",
+                        "AudioEncodingBitRate": 32000,
+                        "AudioQuality": "Low",
+                        "Channels": 1,
+                        "SampleRate": 22050,
+                      }
+        }
+        recordingPath="test.aac"
+>
+        [Function]
+</RecorderButton>,
+      "_debugID": 11,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": RecorderButton {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "children": [Function],
+          "onStartRecording": [Function],
+          "onStopRecording": [Function],
+          "recordingDirPath": "undefined/",
+          "recordingOptions": Object {
+            "AudioEncoding": "aac",
+            "AudioEncodingBitRate": 32000,
+            "AudioQuality": "Low",
+            "Channels": 1,
+            "SampleRate": 22050,
+          },
+          "recordingPath": "test.aac",
+        },
+        "refs": Object {},
+        "startRecording": [Function],
+        "state": Object {
+          "isRecording": false,
+        },
+        "stopRecording": [Function],
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 6,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <View>
+          <Button
+                    onPress={[Function]}
+                    style={Object {}}
+                    title="Start Recording"
+          />
+</View>,
+        "_debugID": 12,
+        "_renderedOutput": <View>
+          <Button
+                    onPress={[Function]}
+                    style={Object {}}
+                    title="Start Recording"
+          />
+</View>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <RecorderButton
+    onStartRecording={[Function]}
+    onStopRecording={[Function]}
+    recordingDirPath="undefined/"
+    recordingOptions={
+        Object {
+            "AudioEncoding": "aac",
+            "AudioEncodingBitRate": 32000,
+            "AudioQuality": "Low",
+            "Channels": 1,
+            "SampleRate": 22050,
+          }
+    }
+    recordingPath="test.aac"
+>
+    [Function]
+</RecorderButton>,
+}
+`;

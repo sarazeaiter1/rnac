@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AudioUtils exports 1`] = `
+Object {
+  "CachesDirectoryPath": undefined,
+  "DocumentDirectoryPath": undefined,
+  "LibraryDirectoryPath": undefined,
+  "MainBundlePath": undefined,
+}
+`;
+
+exports[`AudioUtils exports getAudioUtils 1`] = `[Function]`;
+
+exports[`AudioUtils exports getAudioUtils callable 1`] = `
+Object {
+  "CachesDirectoryPath": undefined,
+  "DocumentDirectoryPath": undefined,
+  "LibraryDirectoryPath": undefined,
+  "MainBundlePath": undefined,
+}
+`;
+
+exports[`AudioUtils exports getAudioUtils callable android  1`] = `
+Object {
+  "CachesDirectoryPath": undefined,
+  "DocumentDirectoryPath": undefined,
+  "DownloadsDirectoryPath": undefined,
+  "LibraryDirectoryPath": undefined,
+  "MainBundlePath": undefined,
+  "MusicDirectoryPath": undefined,
+  "PicturesDirectoryPath": undefined,
+}
+`;

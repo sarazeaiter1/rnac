@@ -1,4 +1,4 @@
-import { NativeAppEventEmitter } from 'react-native';
+import { NativeAppEventEmitter, Platform } from 'react-native';
 
 import AudioRecorderManager from './AudioRecorderManager';
 import getNativePrepareRecordingAtPathArguments from './getNativePrepareRecordingAtPathArguments';
@@ -46,18 +46,29 @@ const AudioRecorder = {
       nativeEventListeners.recordingProgressSubscription.remove();
     }
   },
-  startRecording({ recordingPath, recordingOptions }) {
-    if (!recordingState.isRecording) {
-      recordingState.isRecording = true;
-      this.bindNativeEventListeners();
-      const preparRecordingAtPathArgs = getNativePrepareRecordingAtPathArguments(
-        {
-          recordingPath,
-          recordingOptions: { recordingOptions }
-        }
-      );
-      AudioRecorderManager.prepareRecordingAtPath(...preparRecordingAtPathArgs);
-      return AudioRecorderManager.startRecording();
+  async startRecording({ recordingPath, recordingOptions }) {
+    try {
+      if (!recordingState.isRecording) {
+        recordingState.isRecording = true;
+        this.bindNativeEventListeners();
+        const prepareRecordingAtPathArgs = getNativePrepareRecordingAtPathArguments(
+          {
+            recordingPath,
+            recordingOptions: { recordingOptions }
+          }
+        );
+        await AudioRecorderManager.prepareRecordingAtPath(
+          prepareRecordingAtPathArgs.recordingPath,
+          {
+            ...prepareRecordingAtPathArgs.settings
+          }
+        );
+
+        return AudioRecorderManager.startRecording();
+      }
+    } catch (err) {
+      // eslint-disable-next-line
+      console.warn(err);
     }
   },
   stopRecording: function() {
@@ -68,13 +79,17 @@ const AudioRecorder = {
     }
   },
   pauseRecording: function() {
-    return AudioRecorderManager.pauseRecording();
+    return Platform.OS === 'ios'
+      ? AudioRecorderManager.pauseRecording()
+      : this.stopRecording();
   },
   checkAuthorizationStatus: AudioRecorderManager.checkAuthorizationStatus,
   requestAuthorization: AudioRecorderManager.requestAuthorization,
   removeListeners: function() {
-    if (this.progressSubscription) this.progressSubscription.remove();
-    if (this.finishedSubscription) this.finishedSubscription.remove();
+    if (nativeEventListeners.recordingProgressSubscription)
+      nativeEventListeners.recordingProgressSubscription.remove();
+    if (nativeEventListeners.recordingFinishedSubscription)
+      nativeEventListeners.recordingFinishedSubscription.remove();
   }
 };
 

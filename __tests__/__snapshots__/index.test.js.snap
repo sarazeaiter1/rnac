@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Package exports correctly 1`] = `
+Object {
+  "AudioRecorder": Object {
+    "bindNativeEventListeners": [Function],
+    "checkAuthorizationStatus": undefined,
+    "destroy": [Function],
+    "init": [Function],
+    "onRecordingFinished": [Function],
+    "onRecordingProgress": [Function],
+    "pauseRecording": [Function],
+    "removeListeners": [Function],
+    "requestAuthorization": undefined,
+    "startRecording": [Function],
+    "stopRecording": [Function],
+    "unbindNativeEventListeners": [Function],
+  },
+  "AudioUtils": Object {
+    "CachesDirectoryPath": undefined,
+    "DocumentDirectoryPath": undefined,
+    "LibraryDirectoryPath": undefined,
+    "MainBundlePath": undefined,
+  },
+  "Recorder": [Function],
+  "TimeElapsed": [Function],
+}
+`;

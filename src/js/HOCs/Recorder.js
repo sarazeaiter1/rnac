@@ -58,12 +58,10 @@ class RecorderButton extends React.Component {
       recordingPath = null,
       recordingOptions = null
     } = startRecordingConfig;
-
     const recordingSaveToPath =
       recordingPath === null
         ? this.props.recordingDirPath + fileName
         : recordingPath;
-
     const mergedOptions = {
       ...this.props.recordingOptions,
       ...recordingOptions
@@ -74,7 +72,6 @@ class RecorderButton extends React.Component {
         recordingOptions: mergedOptions
       });
     } catch (err) {
-      console.warn('here');
       // eslint-disable-next-line
       console.warn('Error : ' + err.message);
     }

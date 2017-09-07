@@ -28,6 +28,10 @@ const getNativePrepareRecordingAtPathArguments = ({
       MeteringEnabled
     ];
   }
-  return [recordingPath, recordingOptions];
+  const androidRecordingOption = Object.assign(
+    { OutputFormat: recordingOptions.recordingOptions.AudioEncoding },
+    recordingOptions.recordingOptions
+  );
+  return { recordingPath, settings: androidRecordingOption };
 };
 export default getNativePrepareRecordingAtPathArguments;
