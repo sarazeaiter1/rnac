@@ -160,10 +160,20 @@ public class RNAudioRecorderModule extends ReactContextBaseJavaModule {
       logAndRejectPromise(promise, "INVALID_STATE", "Please call stopRecording before starting recording");
       return;
     }
-    recorder.start();
-    isRecording = true;
-    startTimer();
-    promise.resolve(currentOutputFile);
+    try {
+      recorder.start();
+      isRecording = true;
+      startTimer();
+      promise.resolve(currentOutputFile);
+    }
+    catch (final RuntimeException e) {
+      // https://developer.android.com/reference/android/media/MediaRecorder.html#stop()
+      logAndRejectPromise(promise, "RUNTIME_EXCEPTION", "No valid audio data received. You may be using a device that can't record audio.");
+      return;
+    }
+    finally {
+      recorder = null;
+    }
   }
 
   @ReactMethod
