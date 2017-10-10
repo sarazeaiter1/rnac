@@ -21,7 +21,7 @@ On *iOS* you need to add a usage description to `Info.plist`:
 <string>This sample uses the microphone to record your speech and convert it to text.</string>
 ```
 
-On *Android* you need to add a permission to `AndroidManifest.xml`:
+On *Android* you need to add a permission to `android/app/src/main/AndroidManifest.xml`:
 
 ```
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
