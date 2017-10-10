@@ -66,14 +66,15 @@ class RecorderButton extends React.Component {
       ...this.props.recordingOptions,
       ...recordingOptions
     };
+    let audioRecorderResponse = null;
     try {
-      await AudioRecorder.startRecording({
+      audioRecorderResponse = await AudioRecorder.startRecording({
         recordingPath: recordingSaveToPath,
         recordingOptions: mergedOptions
       });
     } catch (err) {
       // eslint-disable-next-line
-      console.warn('Error : ' + err.message);
+      console.warn('Error in audio recorder start: ' + err.message);
     }
 
     this.setState({ isRecording: true });
@@ -81,17 +82,25 @@ class RecorderButton extends React.Component {
       recordingPath: recordingSaveToPath,
       recordingOptions: this.props.recordingOptions
     });
+    return audioRecorderResponse;
   };
   stopRecording = async () => {
+    let audioRecorderResponse = null;
     if (!this.state.isRecording) {
-      return;
+      return null;
     }
-    await AudioRecorder.stopRecording();
+    try {
+      audioRecorderResponse = await AudioRecorder.stopRecording();
+    } catch (err) {
+      console.warn('Error in audio recorder stop: ' + err.message);
+    }
+
     this.setState({ isRecording: false });
     this.props.onStopRecording({
       recordingPath: this.props.recordingDirPath + this.props.recordingPath,
       recordingOptions: this.props.recordingOptions
     });
+    return audioRecorderResponse;
   };
 }
 
