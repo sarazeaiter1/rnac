@@ -1,6 +1,6 @@
 {
   "main": "src/js/index.js",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "name": "et3-react-native-audio-recorder",
   "scripts": {
     "test": "eslint ./src/js/**/*.js && jest --coverage"

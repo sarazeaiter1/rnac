@@ -12,25 +12,23 @@ NSString *const AudioRecorderEventFinished = @"recordingFinished";
 @implementation RNAudioRecorder {
     AVAudioRecorder *_audioRecorder;
 
-    NSTimeInterval _currentTime;
-    id _progressUpdateTimer;
-    int _progressUpdateInterval;
-    NSDate *_prevProgressUpdateTime;
-    NSURL *_audioFileURL;
-    NSNumber *_audioQuality;
-    NSNumber *_audioEncoding;
-    NSNumber *_audioChannels;
-    NSNumber *_audioSampleRate;
-    AVAudioSession *_recordSession;
-    BOOL _meteringEnabled;
+  NSTimeInterval _currentTime;
+  id _progressUpdateTimer;
+  int _progressUpdateInterval;
+  NSDate *_prevProgressUpdateTime;
+  NSURL *_audioFileURL;
+  NSNumber *_audioQuality;
+  NSNumber *_audioEncoding;
+  NSNumber *_audioChannels;
+  NSNumber *_audioSampleRate;
+  AVAudioSession *_recordSession;
+  BOOL _meteringEnabled;
+  BOOL _measurementMode;
 }
 
-- (dispatch_queue_t)methodQueue
-{
-    return dispatch_get_main_queue();
-}
-RCT_EXPORT_MODULE()
+@synthesize bridge = _bridge;
 
+RCT_EXPORT_MODULE();
 
 - (void)sendProgressUpdate {
   if (_audioRecorder && _audioRecorder.recording) {
@@ -83,7 +81,7 @@ RCT_EXPORT_MODULE()
   return basePath;
 }
 
-RCT_EXPORT_METHOD(prepareRecordingAtPath:(NSString *)path sampleRate:(float)sampleRate channels:(nonnull NSNumber *)channels quality:(NSString *)quality encoding:(NSString *)encoding meteringEnabled:(BOOL)meteringEnabled resolve:(RCTPromiseResolveBlock)resolve reject:(__unused RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(prepareRecordingAtPath:(NSString *)path sampleRate:(float)sampleRate channels:(nonnull NSNumber *)channels quality:(NSString *)quality encoding:(NSString *)encoding meteringEnabled:(BOOL)meteringEnabled measurementMode:(BOOL)measurementMode)
 {
   _prevProgressUpdateTime = nil;
   [self stopProgressTimer];
@@ -155,10 +153,21 @@ RCT_EXPORT_METHOD(prepareRecordingAtPath:(NSString *)path sampleRate:(float)samp
     _meteringEnabled = meteringEnabled;
   }
 
+  // Measurement mode to disable mic auto gain and high pass filters
+  if (measurementMode != NO) {
+    _measurementMode = measurementMode;
+  }
+
   NSError *error = nil;
 
   _recordSession = [AVAudioSession sharedInstance];
-  [_recordSession setCategory:AVAudioSessionCategoryMultiRoute error:nil];
+
+  if (_measurementMode) {
+      [_recordSession setCategory:AVAudioSessionCategoryRecord error:nil];
+      [_recordSession setMode:AVAudioSessionModeMeasurement error:nil];
+  }else{
+      [_recordSession setCategory:AVAudioSessionCategoryMultiRoute error:nil];
+  }
 
   _audioRecorder = [[AVAudioRecorder alloc]
                 initWithURL:_audioFileURL
@@ -169,42 +178,36 @@ RCT_EXPORT_METHOD(prepareRecordingAtPath:(NSString *)path sampleRate:(float)samp
   _audioRecorder.delegate = self;
 
   if (error) {
-      // NSLog(@"Error Initialising AVAudioRecorder", @"Error Initialising AVAudioRecorder");
-      resolve(NULL);
+      NSLog(@"--------------------error: %@", [error localizedDescription]);
       // TODO: dispatch error over the bridge
     } else {
       [_audioRecorder prepareToRecord];
-      resolve([_audioFileURL path]);
   }
 }
 
-RCT_EXPORT_METHOD(startRecording:(RCTPromiseResolveBlock)resolve reject:(__unused RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(startRecording)
 {
   if (!_audioRecorder.recording) {
     [self startProgressTimer];
     [_recordSession setActive:YES error:nil];
     [_audioRecorder record];
-    resolve([_audioFileURL path]);
-  } else {
-      reject(@"INVALID_STATE", @"Already recording", @"Already recording");
+
   }
 }
 
-RCT_EXPORT_METHOD(stopRecording:(RCTPromiseResolveBlock)resolve reject:(__unused RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(stopRecording)
 {
   [_audioRecorder stop];
-  [_recordSession setActive:NO error:nil];
+  [_recordSession setCategory:AVAudioSessionCategoryPlayback error:nil];
   _prevProgressUpdateTime = nil;
-    resolve(@"Recording Stopped");
 }
 
-RCT_EXPORT_METHOD(pauseRecording:(RCTPromiseResolveBlock)resolve reject:(__unused RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(pauseRecording)
 {
   if (_audioRecorder.recording) {
     [self stopProgressTimer];
     [_audioRecorder pause];
   }
-    resolve(@"Recording Paused");
 }
 
 RCT_EXPORT_METHOD(checkAuthorizationStatus:(RCTPromiseResolveBlock)resolve reject:(__unused RCTPromiseRejectBlock)reject)
@@ -221,7 +224,7 @@ RCT_EXPORT_METHOD(checkAuthorizationStatus:(RCTPromiseResolveBlock)resolve rejec
       resolve(@("granted"));
       break;
     default:
-      // reject(RCTErrorUnspecified, nil, RCTErrorWithMessage(@("Error checking device authorization status.")));
+      reject(RCTErrorUnspecified, nil, RCTErrorWithMessage(@("Error checking device authorization status.")));
       break;
   }
 }
@@ -253,7 +256,6 @@ RCT_EXPORT_METHOD(requestAuthorization:(RCTPromiseResolveBlock)resolve
     @"NSLibraryDirectoryPath": [self getPathForDirectory:NSLibraryDirectory]
   };
 }
-
 
 @end
   

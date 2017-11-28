@@ -17,7 +17,8 @@ const getNativePrepareRecordingAtPathArguments = ({
       Channels,
       AudioQuality,
       AudioEncoding,
-      MeteringEnabled
+      MeteringEnabled,
+      MeasurementMode
     } = customRecordingOptions;
     return [
       recordingPath,
@@ -25,7 +26,8 @@ const getNativePrepareRecordingAtPathArguments = ({
       Channels,
       AudioQuality,
       AudioEncoding,
-      MeteringEnabled
+      MeteringEnabled,
+      MeasurementMode
     ];
   }
   const androidRecordingOption = Object.assign(

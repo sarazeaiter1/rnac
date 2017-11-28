@@ -69,7 +69,6 @@ const AudioRecorder = {
             }
           );
         }
-
         return AudioRecorderManager.startRecording();
       }
     } catch (err) {
