@@ -1,6 +1,6 @@
-# et3-native-react-native-audio-recorder
+# RNAC [WIP]
 
-HOCs and native utilities to record sound with react-native.
+Render props and native utilities to record sound with react-native.
 
 ## Installation
 
