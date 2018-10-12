@@ -52,6 +52,10 @@ RCT_EXPORT_MODULE();
     _prevProgressUpdateTime = [NSDate date];
   }
 }
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
 
 - (void)stopProgressTimer {
   [_progressUpdateTimer invalidate];
